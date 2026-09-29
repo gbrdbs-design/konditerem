@@ -150,7 +150,7 @@ main.stack { padding-bottom: var(--section-gap); }
 .brands { display: flex; flex-direction: column; gap: 60px; align-items: center; }
 .brands__band {
   background: var(--orange); color: var(--white); font-weight: 700; font-size: 35px; line-height: 45px; text-align: center;
-  padding: 20px 60px; align-self: stretch; margin: 0 calc(-1 * var(--page-pad));
+  padding: 20px 60px; align-self: center; width: 100vw; max-width: none; margin-inline: calc(50% - 50vw);
 }
 .brand { display: flex; flex-direction: column; align-items: center; gap: 60px; width: 100%; }
 .brand__head { display: flex; flex-direction: column; align-items: center; gap: 33px; text-align: center; max-width: 1212px; }
