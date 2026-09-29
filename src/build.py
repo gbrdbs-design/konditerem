@@ -224,7 +224,7 @@ def home():
     }
     virtu = "".join(f'<a class="tile tile--virtu" href="kategoria.html"><span class="tile__media"><img src="img/virtu-{i}.jpg" alt="" loading="lazy" width="640" height="690"></span><span class="tile__label"><span class="tile__title">{n}</span><span class="tile__rule" aria-hidden="true"></span><span class="tile__desc">{virtu_txt[n]}</span><span class="btn tile__btn">Megnézem</span></span></a>' for i, n in enumerate(["Cardio", "Fitness", "Beltér"], 1))
     body = f'''<section class="hero" aria-label="Bemutatkozás">
-  <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="img/hero.jpg" aria-hidden="true"><source src="img/hero.mp4" type="video/mp4"></video>
+  <video class="hero__video" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0" autoplay muted loop playsinline preload="auto" poster="img/hero.jpg" aria-hidden="true"><source src="img/hero.mp4" type="video/mp4"></video>
   <div class="hero__content">
     <div>
       <h1>Konditerem berendezés<br> a tervezéstől a beüzemelésig</h1>
