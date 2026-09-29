@@ -405,8 +405,22 @@ def product():
     return page("Flow Fitness Perform S2i | konditeremberendezesek.hu", "Flow Fitness Perform S2i félprofesszionális indoor bike szobabicikli – technikai adatok.", body, "bar", "termekek", "index.html#kapcsolat")
 
 
+def fingerprint(rel):
+    """Tartalom-hash a fájlnévben (pl. css/style.3f2a1b9c.css), hogy a böngésző ne a régi, gyorsítótárazott verziót használja."""
+    import hashlib
+    src = OUT / rel
+    stem, ext = src.stem, src.suffix
+    for old in src.parent.glob(f"{stem}.*{ext}"):
+        if old != src:
+            old.unlink()
+    h = hashlib.md5(src.read_bytes()).hexdigest()[:8]
+    (src.parent / f"{stem}.{h}{ext}").write_bytes(src.read_bytes())
+    return f"{src.parent.name}/{stem}.{h}{ext}"
+
+
 if __name__ == "__main__":
+    css, js = fingerprint("css/style.css"), fingerprint("js/main.js")
     for name, fn in [("index.html", home), ("kategoria.html", category), ("termeklista.html", product_list), ("termek.html", product)]:
-        html = fn().replace("carousel-m", "carousel-m")
+        html = fn().replace('href="css/style.css"', f'href="{css}"').replace('src="js/main.js"', f'src="{js}"')
         (OUT / name).write_text(html, encoding="utf-8")
         print("írva:", OUT / name)
