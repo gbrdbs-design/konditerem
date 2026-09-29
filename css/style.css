@@ -320,8 +320,11 @@ main.stack { padding-bottom: var(--section-gap); }
 .field.has-error { border-color: #d93025; }
 .field .error { color: #d93025; font-size: 14px; line-height: 18px; display: none; }
 .field.has-error .error { display: block; }
-.file { display: inline-flex; align-items: center; gap: 10px; font-family: "Mulish", sans-serif; font-size: 16px; line-height: 30px; color: #23262d; cursor: pointer; }
-.file span { text-decoration: underline; }
+/* Figma: attach ikon 18×18 (#313D4D), Mulish Regular 16/30, #23262D, aláhúzva */
+.field label.file { display: inline-flex; align-items: center; gap: 10px; font-family: "Mulish", "Roboto", sans-serif; font-weight: 400; font-size: 16px; line-height: 30px; color: #23262d; cursor: pointer; }
+.file__icon { flex: none; width: 18px; height: 18px; }
+.file__text { text-decoration: underline; text-underline-position: from-font; }
+.file__text--mobile { display: none; }
 .file input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .file-name { font-size: 14px; color: var(--text-grey); }
 .form__success { display: none; background: #eaf7ef; border: 1px solid var(--green); color: #0a5c30; border-radius: 12px; padding: 14px 18px; font-size: 16px; width: 100%; }
@@ -559,6 +562,9 @@ main.stack { padding-bottom: var(--section-gap); }
   .contact { padding: 28px 20px; gap: 32px; }
   .contact__facts div { font-size: 14px; }
   .field label, .field .label { font-size: 18px; line-height: 26px; }
+  .field label.file { font-size: 16px; line-height: 24px; }
+  .file__text--desktop { display: none; }
+  .file__text--mobile { display: inline; text-decoration: none; }
   .form .btn { width: 100%; }
 
   .footer { padding: 40px 16px; }
